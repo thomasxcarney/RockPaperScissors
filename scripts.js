@@ -59,18 +59,22 @@ function game() {
             let round = playRound(playerChoice);
             if (round === 2) {
                 playerCount++;
+                console.log("You won this round");
             } else if (round === 1) {
                 computerCount++
+                console.log("You lost this round");
+            } else {
+                console.log("It's a tie");
             };
         } else {
             alert("Invalid Choice!");
         };
     };
     if (playerCount > computerCount) {
-        return "You Win!";
+        console.log("You win!");
     } else if (playerCount < computerCount) {
-        return "You Lose!";
+        console.log("You lose!");
     } else {
-        return "It's a tie! Play again."
+        console.log("It's a tie! Play again.");
     };
 }
