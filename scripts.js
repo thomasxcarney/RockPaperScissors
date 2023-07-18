@@ -55,10 +55,14 @@ function game() {
     let computerCount = 0;
     for(var i=0; i < 5; i++) {
         let playerChoice = prompt("Make your Choice", " ");
-        if (playerChoice.toLowerCase() == "rock" || "paper" || "scissors") {
-            playRound(playerChoice));
+        if (playerChoice.toLowerCase() === "rock" || playerChoice.toLowerCase() === "paper" || playerChoice.toLowerCase() === "scissors") {
+            /*let round = playRound(playerChoice);
+            if (round.startsWith("You Win")) {
+                playerCount++;
+            }*/
+            playRound(playerChoice);
         } else {
             alert("Invalid Choice!");
-        }
-    }
+        };
+    };
 }
