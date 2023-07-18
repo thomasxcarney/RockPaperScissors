@@ -2,7 +2,9 @@
 function getComputerChoice will randomly select rock, paper, or scissor
     generate random number between 0 and 2
     0=rock,1=paper, 2=scissors
-function playGame takes (playerInput) and computer input and returns string declaring winner
+function playRound takes (playerInput) and computer input and returns string declaring winner
+
+function game() 5 round game that keeps score and reports winner or loser at the end
 
 
 */
@@ -18,7 +20,7 @@ function getComputerChoice() {
     };
 }
 
-function playGame (playerInput) {
+function playRound (playerInput) {
     let playerChoice = playerInput.toLowerCase();
     let computerChoice = getComputerChoice();
     if (playerChoice === "rock") {
@@ -47,3 +49,16 @@ function playGame (playerInput) {
          };
     }
 };
+
+function game() {
+    let playerCount = 0;
+    let computerCount = 0;
+    for(var i=0; i < 5; i++) {
+        let playerChoice = prompt("Make your Choice", " ");
+        if (playerChoice.toLowerCase() == "rock" || "paper" || "scissors") {
+            playRound(playerChoice));
+        } else {
+            alert("Invalid Choice!");
+        }
+    }
+}
