@@ -25,27 +25,27 @@ function playRound (playerInput) {
     let computerChoice = getComputerChoice();
     if (playerChoice === "rock") {
         if (computerChoice === "rock") {
-            return "Tie, play again!";
+            return 0; "Tie, play again!";
         } else if (computerChoice === "paper") {
-            return ("You lose! " + computerChoice + " beats " + playerChoice);
+            return 1;//("You lose! " + computerChoice + " beats " + playerChoice);
         } else {
-            return ("You win! " + playerChoice + " beats " + computerChoice);
+            return 2;//("You win! " + playerChoice + " beats " + computerChoice);
          };
     } else if (playerChoice === "paper") {
         if (computerChoice === "paper") {
-            return "Tie, play again!";
+            return 0;//"Tie, play again!";
         } else if (computerChoice === "scissors") {
-            return ("You lose! " + computerChoice + " beats " + playerChoice);
+            return 1;//("You lose! " + computerChoice + " beats " + playerChoice);
         } else {
-            return ("You win! " + playerChoice + " beats " + computerChoice);
+            return 2;//("You win! " + playerChoice + " beats " + computerChoice);
          };
     } else {
         if (computerChoice === "scissors") {
-            return "Tie, play again!";
+            return 0;//"Tie, play again!";
         } else if (computerChoice === "rock") {
-            return ("You lose! " + computerChoice + " beats " + playerChoice);
+            return 1;//("You lose! " + computerChoice + " beats " + playerChoice);
         } else {
-            return ("You win! " + playerChoice + " beats " + computerChoice);
+            return 2;//("You win! " + playerChoice + " beats " + computerChoice);
          };
     }
 };
@@ -53,16 +53,24 @@ function playRound (playerInput) {
 function game() {
     let playerCount = 0;
     let computerCount = 0;
-    for(var i=0; i < 5; i++) {
+    for(let i=0; i < 5; i++) {
         let playerChoice = prompt("Make your Choice", " ");
         if (playerChoice.toLowerCase() === "rock" || playerChoice.toLowerCase() === "paper" || playerChoice.toLowerCase() === "scissors") {
-            /*let round = playRound(playerChoice);
-            if (round.startsWith("You Win")) {
+            let round = playRound(playerChoice);
+            if (round === 2) {
                 playerCount++;
-            }*/
-            playRound(playerChoice);
+            } else if (round === 1) {
+                computerCount++
+            };
         } else {
             alert("Invalid Choice!");
         };
+    };
+    if (playerCount > computerCount) {
+        return "You Win!";
+    } else if (playerCount < computerCount) {
+        return "You Lose!";
+    } else {
+        return "It's a tie! Play again."
     };
 }
