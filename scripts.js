@@ -5,8 +5,6 @@ function getComputerChoice will randomly select rock, paper, or scissor
 function playRound takes (playerInput) and computer input and returns string declaring winner
 
 function game() 5 round game that keeps score and reports winner or loser at the end
-
-
 */
 
 function getComputerChoice() {
@@ -79,3 +77,14 @@ function game() {
     };
 }
 */
+
+const rockBtn = document.querySelector('.rock');
+const paperBtn = document.querySelector('.paper');
+const scissorsBtn = document.querySelector('.scissors');
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        console.log(playRound(button.textContent));
+    });
+});
