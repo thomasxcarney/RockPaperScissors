@@ -49,7 +49,7 @@ function playRound (playerInput) {
          };
     }
 };
-
+/*
 function game() {
     let playerCount = 0;
     let computerCount = 0;
@@ -78,3 +78,4 @@ function game() {
         console.log("It's a tie! Play again.");
     };
 }
+*/
