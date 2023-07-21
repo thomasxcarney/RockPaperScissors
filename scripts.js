@@ -23,7 +23,7 @@ function playRound (playerInput) {
     let computerChoice = getComputerChoice();
     if (playerChoice === "rock") {
         if (computerChoice === "rock") {
-            return 0; "Tie, play again!";
+            return 0; //"Tie, play again!";
         } else if (computerChoice === "paper") {
             return 1;//("You lose! " + computerChoice + " beats " + playerChoice);
         } else {
@@ -87,4 +87,14 @@ buttons.forEach((button) => {
     button.addEventListener('click', () => {
         console.log(playRound(button.textContent));
     });
+
+function pushResults(result) {
+    const resultText = document.createElement("p");
+    result.classList.add("results");
+    if(result == 0){
+        resultText.textContent = "It's a tie!";
+    }else if(result == 1){
+        resultText.textContent = "You lost!";
+    }else resultText.textContent = "You won!";
+};
 });
