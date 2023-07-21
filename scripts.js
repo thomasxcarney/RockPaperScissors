@@ -85,12 +85,13 @@ const buttons = document.querySelectorAll('button');
 
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
-        console.log(playRound(button.textContent));
+        playRound(button.textContent);
     });
 });
 
 
 function pushResults(result) {
+    scoreCounter(result);
     const resultText = document.createElement("p");
     resultText.classList.add("roundResults");
     if(result === 0){
@@ -100,4 +101,25 @@ function pushResults(result) {
     }else resultText.textContent = "You won!";
     const resultContainer = document.querySelector(".results");
     resultContainer.appendChild(resultText);
+};
+
+let playerScore = 0;
+let computerScore = 0;
+
+function scoreCounter(result){
+    if(result == 1){
+        computerScore += 1;
+    } else if(result == 2){
+        playerScore += 1;
+    };
+    console.log(playerScore, computerScore);
+    announceWinner(playerScore, computerScore);
+};
+
+function announceWinner(playerScore, computerScore){
+    if (playerScore === 5){
+        alert("You won the game!");
+    } else if (computerScore === 5){
+        alert("You lost the game!");
+    };
 };
