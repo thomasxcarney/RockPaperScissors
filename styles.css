@@ -10,3 +10,18 @@
 .results {
     text-align:center;
 }
+
+.button-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.choices {
+    display: flex;
+    flex-direction: column;
+}
+
+img {
+    max-width: 200px;
+}
