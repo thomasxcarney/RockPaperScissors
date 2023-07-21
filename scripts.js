@@ -113,10 +113,10 @@ function scoreCounter(result){
         playerScore += 1;
     };
     console.log(playerScore, computerScore);
-    announceWinner(playerScore, computerScore);
+    alertWinner(playerScore, computerScore);
 };
 
-function announceWinner(playerScore, computerScore){
+function alertWinner(playerScore, computerScore){
     if (playerScore === 5){
         alert("You won the game!");
     } else if (computerScore === 5){
