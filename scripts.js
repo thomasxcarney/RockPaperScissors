@@ -23,27 +23,27 @@ function playRound (playerInput) {
     let computerChoice = getComputerChoice();
     if (playerChoice === "rock") {
         if (computerChoice === "rock") {
-            return 0; //"Tie, play again!";
+            pushResults(0);//"Tie, play again!";
         } else if (computerChoice === "paper") {
-            return 1;//("You lose! " + computerChoice + " beats " + playerChoice);
+            pushResults(1);//("You lose! " + computerChoice + " beats " + playerChoice);
         } else {
-            return 2;//("You win! " + playerChoice + " beats " + computerChoice);
+            pushResults(2);//("You win! " + playerChoice + " beats " + computerChoice);
          };
     } else if (playerChoice === "paper") {
         if (computerChoice === "paper") {
-            return 0;//"Tie, play again!";
+            pushResults(0);//"Tie, play again!";
         } else if (computerChoice === "scissors") {
-            return 1;//("You lose! " + computerChoice + " beats " + playerChoice);
+            pushResults(1);//("You lose! " + computerChoice + " beats " + playerChoice);
         } else {
-            return 2;//("You win! " + playerChoice + " beats " + computerChoice);
+            pushResults(2);//("You win! " + playerChoice + " beats " + computerChoice);
          };
     } else {
         if (computerChoice === "scissors") {
-            return 0;//"Tie, play again!";
+            pushResults(0);//"Tie, play again!";
         } else if (computerChoice === "rock") {
-            return 1;//("You lose! " + computerChoice + " beats " + playerChoice);
+            pushResults(1);//("You lose! " + computerChoice + " beats " + playerChoice);
         } else {
-            return 2;//("You win! " + playerChoice + " beats " + computerChoice);
+            pushResults(2);//("You win! " + playerChoice + " beats " + computerChoice);
          };
     }
 };
@@ -87,14 +87,17 @@ buttons.forEach((button) => {
     button.addEventListener('click', () => {
         console.log(playRound(button.textContent));
     });
+});
+
 
 function pushResults(result) {
     const resultText = document.createElement("p");
-    result.classList.add("results");
-    if(result == 0){
+    resultText.classList.add("roundResults");
+    if(result === 0){
         resultText.textContent = "It's a tie!";
-    }else if(result == 1){
+    }else if(result === 1){
         resultText.textContent = "You lost!";
     }else resultText.textContent = "You won!";
+    const resultContainer = document.querySelector(".results");
+    resultContainer.appendChild(resultText);
 };
-});
