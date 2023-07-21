@@ -1,0 +1,12 @@
+* {
+    font-family: arial, sans-serif;
+}
+
+.header{
+    text-align: center;
+}
+
+.button-container,
+.results {
+    text-align:center;
+}
